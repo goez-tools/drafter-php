@@ -1,5 +1,5 @@
 {
-    "name": "hmaus/drafter-php",
+    "name": "goez/drafter-php",
     "description": "PHP wrapper around drafter binary",
     "license": "MIT",
     "authors": [
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Hmaus\\DrafterPhp\\": "src"
+            "Goez\\DrafterPhp\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Hmaus\\DrafterPhp\\Tests\\": "tests"
+            "Goez\\DrafterPhp\\Tests\\": "tests"
         }
     },
     "extra": {
