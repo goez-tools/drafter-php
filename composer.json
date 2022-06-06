@@ -10,14 +10,13 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.6",
-        "symfony/process": "^4|^5"
+        "php": ">=7.2",
+        "symfony/process": ">=5.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.0",
-        "consolidation/robo": "^1.2.2",
-        "codeclimate/php-test-reporter": "^0.3",
-        "hmaus/drafter-installer": "^1.0"
+        "phpunit/phpunit": "^9.0",
+        "goez/drafter-installer": "^2.0",
+        "consolidation/robo": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -30,13 +29,13 @@
         }
     },
     "extra": {
-        "drafter-installer-tag": "v4.0.2"
+        "drafter-installer-tag": "v3.2.7"
     },
     "scripts": {
         "clean": "rm -rf vendor/ ext/ composer.lock",
         "test": "vendor/bin/phpunit",
         "quicktest": "vendor/bin/phpunit --no-coverage",
-        "install-drafter": "Hmaus\\Drafter\\Installer::installDrafter",
+        "install-drafter": "Goez\\Drafter\\Installer::installDrafter",
         "post-install-cmd": [
             "@install-drafter"
         ],
