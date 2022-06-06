@@ -13,10 +13,10 @@
  * @package   DrafterPhp
  */
 
-namespace Hmaus\DrafterPhp\Tests;
+namespace Goez\DrafterPhp\Tests;
 
-use Hmaus\DrafterPhp\Drafter;
-use Hmaus\DrafterPhp\DrafterInterface;
+use Goez\DrafterPhp\Drafter;
+use Goez\DrafterPhp\DrafterInterface;
 use Symfony\Component\Process\Process;
 
 class DrafterTest extends \PHPUnit_Framework_TestCase
