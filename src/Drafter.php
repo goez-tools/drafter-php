@@ -146,7 +146,7 @@ class Drafter implements DrafterInterface
     {
         $this->validateOptionsAndArguments();
 
-        $process = new Process(
+        $process = Process::fromShellCommandline(
             $this->getProcessCommand()
         );
 
@@ -247,7 +247,9 @@ class Drafter implements DrafterInterface
     private function getProcessCommand()
     {
         $options   = $this->transformOptions();
-        $options[] = escapeshellarg($this->input);
+        if ($this->input) {
+            $options[] =  escapeshellarg($this->input);
+        }
 
         $command = $this->binary . ' ' . implode(' ', $options);
 
