@@ -15,7 +15,7 @@ In a nutshell: you can convert [API Blueprint](http://apiblueprint.org/) files t
 [Markdown](https://en.wikipedia.org/wiki/Markdown).
 
 ## Requirements
-* PHP 5.6 or greater
+* PHP 8.0 or greater
 * Drafter [command line tool](https://github.com/apiaryio/drafter#drafter-command-line-tool)
 
 ## What Is What
