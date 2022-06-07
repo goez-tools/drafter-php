@@ -19,7 +19,7 @@ use Goez\DrafterPhp\Drafter;
 use Goez\DrafterPhp\DrafterInterface;
 use Symfony\Component\Process\Process;
 
-class DrafterTest extends \PHPUnit_Framework_TestCase
+class DrafterTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Path to the drafter bin for the tests.
@@ -42,7 +42,7 @@ class DrafterTest extends \PHPUnit_Framework_TestCase
     /**
      * Init test case.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->binPath     = __DIR__ . '/../vendor/bin/drafter';
         $this->fixturePath = __DIR__ . '/fixtures/';
@@ -150,11 +150,12 @@ class DrafterTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Build the process instance using drafter but with space in file name (input and output)
-     * @expectedException \Exception
-     * @expectedExceptionMessageRegExp /unable to open file/
      */
     public function testBuildWithSpace()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessageMatches('/unable to open file/');
+
         $process = $this
             ->drafter
             ->input($this->fixturePath . 'simplest example.apib')
@@ -237,12 +238,12 @@ class DrafterTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Catch an exception if the binary cannot be found.
-     *
-     * @expectedException \Exception
-     * @expectedExceptionMessageRegExp /INVALID/
      */
     public function testInvalidBinaryWillThrowException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessageMatches('/INVALID/');
+
         $this
             ->drafter
             ->setBinary('INVALID')
@@ -252,12 +253,12 @@ class DrafterTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Catch an exception if the input file cannot be opened.
-     *
-     * @expectedException \Exception
-     * @expectedExceptionMessage fatal: unable to open file 'INVALID'
      */
     public function testInvalidInputArgumentWillThrowException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("fatal: unable to open file 'INVALID'");
+
         $this
             ->drafter
             ->input('INVALID')
@@ -266,12 +267,12 @@ class DrafterTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Catch an exception if an invalid format is passed.
-     *
-     * @expectedException \Exception
-     * @expectedExceptionMessage option value is invalid: --format=INVALID
      */
     public function testInvalidFormatWillThrowException()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('option value is invalid: --format=INVALID');
+
         $this
             ->drafter
             ->input($this->fixturePath . 'simplest-example.apib')
@@ -281,12 +282,12 @@ class DrafterTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Catch an exception if no option or argument is set.
-     *
-     * @expectedException \Exception
-     * @expectedExceptionMessage Input argument missing
      */
     public function testExceptionWhenInputArgumentIsMissing()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Input argument missing');
+
         $this->drafter->run();
     }
 }
